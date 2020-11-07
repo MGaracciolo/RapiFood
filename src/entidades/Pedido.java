@@ -68,14 +68,6 @@ public class Pedido {
         this.mesero = mesero;
     }
 
-    public Producto getProducto() {
-        return producto;
-    }
-
-    public void setProducto(Producto producto) {
-        this.producto = producto;
-    }
-
     public boolean isActivo() {
         return activo;
     }
@@ -86,7 +78,7 @@ public class Pedido {
 
     @Override
     public String toString() {
-        return "Pedido{" + "idPedido=" + idPedido + ", monto=" + monto + ", mesa=" + mesa + ", mesero=" + mesero + ", producto=" + producto + ", activo=" + activo + '}';
+        return "Pedido{" + "idPedido=" + idPedido + ", monto=" + monto + ", mesa=" + mesa + ", mesero=" + mesero +", activo=" + activo + '}';
     }
     
     
