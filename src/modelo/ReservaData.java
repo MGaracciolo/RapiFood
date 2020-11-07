@@ -127,5 +127,28 @@ public class ReservaData {
         }
         return reservas;        
     }
- 
+    
+    public List<Reserva> obtenerReservasXFecha(Date fecha){
+       Reserva reserva= new Reserva();
+        List<Reserva> reservas = new ArrayList<>();
+        String sql = "SELECT * FROM `reserva` WHERE fecha_hora="+fecha+";";
+        try (PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                reserva.setNombre(rs.getString(1));
+                reserva.setApellido(rs.getString(2));
+                reserva.setDni(rs.getLong(3));
+                reserva.setFecha(rs.getDate(4));
+                reserva.setActivo(rs.getBoolean(5));
+                reserva.setMesa((Mesa) rs.getObject(6));
+               
+                System.out.println(reserva.getIdReserva());
+                reservas.add(reserva);
+            }
+        } catch (SQLException e) {
+            System.err.print(e.getMessage());
+            JOptionPane.showMessageDialog(null, " No se pudo listar las reservas");
+        }
+        return reservas;         
+    }
 }
