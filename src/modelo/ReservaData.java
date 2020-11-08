@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package modelo;
 
 import entidades.Mesa;
@@ -17,10 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author mgara
- */
 public class ReservaData {
     private Connection con = null;
     public ReservaData(Conexion conexion) {
@@ -131,7 +123,7 @@ public class ReservaData {
     public List<Reserva> obtenerReservasXFecha(Date fecha){
        Reserva reserva= new Reserva();
         List<Reserva> reservas = new ArrayList<>();
-        String sql = "SELECT * FROM `reserva` WHERE fecha_hora="+fecha+";";
+        String sql = "SELECT * FROM `reserva` WHERE fecha_hora=?;";
         try (PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             ResultSet rs = ps.executeQuery();
             while(rs.next()){

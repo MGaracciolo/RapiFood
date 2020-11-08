@@ -11,25 +11,21 @@ public class Pedido {
 
     private Mesero mesero;
 
-    private Producto producto;
-
     private boolean activo;
 
     
-    public Pedido(int idPedido, double monto, Mesa mesa, Mesero mesero, Producto producto, boolean activo) {
+    public Pedido(int idPedido, double monto, Mesa mesa, Mesero mesero, boolean activo) {
         this.idPedido = idPedido;
         this.monto = monto;
         this.mesa = mesa;
         this.mesero = mesero;
-        this.producto = producto;
         this.activo = activo;
     }
 
-    public Pedido(double monto, Mesa mesa, Mesero mesero, Producto producto, boolean activo) {
+    public Pedido(double monto, Mesa mesa, Mesero mesero, boolean activo) {
         this.monto = monto;
         this.mesa = mesa;
         this.mesero = mesero;
-        this.producto = producto;
         this.activo = activo;
     }
 
